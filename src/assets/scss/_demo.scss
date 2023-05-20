@@ -1,4 +1,4 @@
-// Demo Styles 
+// Demo Styles
 
 .main-content {
   color: $body-color;
@@ -101,7 +101,7 @@
     }
   }
 
-	  // RTL fix  
+	  // RTL fix
     > p,
     > h1,
     > h2,
@@ -112,7 +112,7 @@
       /*rtl:raw:
         direction: ltr;
       */
-    }  
+    }
 
 }
 
@@ -183,7 +183,7 @@
   }
 }
 
-.nobleui-logo {
+.dibtui-logo {
   font-weight: 700;
   font-size: 25px;
   color: darken($primary, 50%);
