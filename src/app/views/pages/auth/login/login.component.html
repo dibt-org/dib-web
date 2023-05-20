@@ -3,37 +3,33 @@
     <div class="card">
       <div class="row">
         <div class="col-md-4 pe-md-0">
-          <div class="auth-side-wrapper" [ngStyle]="{ 'background-image': 'url(https://via.placeholder.com/219x452)' }">
+          <div class="auth-side-wrapper" [ngStyle]="{ 'background-image': 'url(https://picsum.photos/1752/3616)' }">
 
           </div>
         </div>
         <div class="col-md-8 ps-md-0">
           <div class="auth-form-wrapper px-4 py-5">
-            <a routerLink="." class="nobleui-logo d-block mb-2">Noble<span>UI</span></a>
-            <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
-            <form class="forms-sample">
+            <a routerLink="." class="dibtui-logo d-block mb-2">DİBT<span>UI</span></a>
+            <h5 class="text-muted fw-normal mb-4">DİBT'e Hoşgeldiniz! Hesabınıza giriş yapınız.</h5>
+            <form #loginForm="ngForm" class="forms-sample">
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" value="admin@demo.com">
+                <label for="username" class="form-label">Kullancı Adı</label>
+                <input name="username" #username="ngModel" ngModel type="email" class="form-control" id="username" placeholder="Kullanıcı Adı" >
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" autocomplete="current-password" placeholder="Password" value="12345678">
+                <label for="password" class="form-label">Şifre</label>
+                <input name="password" #password="ngModel" ngModel type="password" class="form-control" id="password" autocomplete="current-password" placeholder="Şifre" >
               </div>
               <div class="form-check mb-3">
                 <input type="checkbox" class="form-check-input" id="authCheck">
                 <label class="form-check-label" for="authCheck">
-                  Remember me
+                  Beni Hatırla
                 </label>
               </div>
               <div>
-                <button type="submit" class="btn btn-primary me-2 mb-2 mb-md-0" (click)="onLoggedin($event)">Login</button>
-                <button type="button" class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
-                  <i class="feather icon-twitter btn-icon-prepend"></i>
-                  Login with twitter
-                </button>
+                <button type="submit" class="btn btn-primary me-2 mb-2 mb-md-0" (click)="login(loginForm)">Giriş</button>
               </div>
-              <a routerLink="/auth/register" class="d-block mt-3 text-muted">Not a user? Sign up</a>
+              <a routerLink="/auth/register" class="d-block mt-3 text-muted">Hesabın Yok mu? Kayıt Ol</a>
             </form>
           </div>
         </div>

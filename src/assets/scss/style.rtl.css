@@ -19271,19 +19271,19 @@ body {
   background: #f9fafb;
 }
 
-.nobleui-logo {
+.dibtui-logo {
   font-weight: 700;
   font-size: 25px;
   color: #000865;
 }
-.nobleui-logo span {
+.dibtui-logo span {
   color: #6571ff;
   font-weight: 300;
 }
-.nobleui-logo:hover {
+.dibtui-logo:hover {
   color: #000865;
 }
-.nobleui-logo.logo-light {
+.dibtui-logo.logo-light {
   color: #000;
 }
 
