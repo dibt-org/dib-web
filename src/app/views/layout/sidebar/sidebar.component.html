@@ -6,9 +6,9 @@
       DİBT<span>UI</span>
     </a>
 
-    <!-- <a routerLink="/" class="sidebar-brand nobleui-logo">
-      <img src="assets/images/logo.png" alt="logo">
-    </a> -->
+<!--    <a routerLink="/" class="sidebar-brand nobleui-logo">-->
+<!--      <img src="assets/images/logo.png" alt="logo">-->
+<!--    </a>-->
 
     <!--- Toggler -->
     <div class="sidebar-toggler not-active" #sidebarToggler (click)="toggleSidebar($event)">
@@ -26,7 +26,7 @@
       <ng-container *ngFor="let item of menuItems">
         <li class="nav-item nav-category" *ngIf="item.isTitle">{{ item.label }}</li>
 
-        <li class="nav-item" *ngIf="!item.isTitle" >
+        <li class="nav-item" *ngIf="!item.isTitle">
 
           <a class="nav-link" *ngIf="hasItems(item)" href="javascript:void(0);">
             <i class="link-icon" [attr.data-feather]="item.icon" appFeatherIcon *ngIf="item.icon"></i>
@@ -35,7 +35,7 @@
           </a>
 
           <a class="nav-link nav-link-ref" [routerLink]="item.link" *ngIf="!hasItems(item)"
-            [attr.data-parent]="item.parentId">
+             [attr.data-parent]="item.parentId">
             <i class="link-icon" [attr.data-feather]="item.icon" appFeatherIcon *ngIf="item.icon"></i>
             <span class="link-title"> {{ item.label }}</span>
             <span class="badge bg-{{item.badge.variant}}" *ngIf="item.badge">{{item.badge.text}}</span>
@@ -51,7 +51,7 @@
               </a>
 
               <a class="nav-link nav-link-ref" [routerLink]="subitem.link" *ngIf="!hasItems(subitem)"
-                [attr.data-parent]="subitem.parentId">
+                 [attr.data-parent]="subitem.parentId">
                 <i class="link-icon" [attr.data-feather]="subitem.icon" appFeatherIcon *ngIf="subitem.icon"></i>
                 {{ subitem.label }}
               </a>
@@ -59,7 +59,7 @@
               <ul class="sidebar-nav sub-menu nav-third-level" *ngIf="hasItems(subitem)" aria-expanded="false">
                 <li class="nav-item" *ngFor="let subSubitem of subitem.subItems">
                   <a class="nav-link nav-link-ref" [routerLink]="subSubitem.link" [routerLinkActive]="['active']"
-                    [attr.data-parent]="subSubitem.parentId">
+                     [attr.data-parent]="subSubitem.parentId">
                     <i class="link-icon" [attr.data-feather]="subitem.icon" appFeatherIcon *ngIf="subitem.icon"></i>
                     {{ subSubitem.label }}
                   </a>
@@ -80,39 +80,5 @@
 
     <!--- Sidemenu end -->
 
-  </div>
-</nav>
-<nav class="settings-sidebar">
-  <div class="sidebar-body">
-    <a href="" class="settings-sidebar-toggler" (click)="toggleSettingsSidebar($event)">
-      <i class="icon feather icon-settings"></i>
-    </a>
-    <h6 class="text-muted mb-2">Sidebar:</h6>
-    <div class="mb-3 pb-3 border-bottom">
-      <div class="form-check form-check-inline">
-        <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="sidebarThemeSettings" (change)="onSidebarThemeChange($event)" id="sidebarLight" value="sidebar-light" checked>
-          <i class="input-frame"></i>
-          Light
-        </label>
-      </div>
-      <div class="form-check form-check-inline">
-        <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="sidebarThemeSettings" (change)="onSidebarThemeChange($event)" id="sidebarDark" value="sidebar-dark">
-          <i class="input-frame"></i>
-          Dark
-        </label>
-      </div>
-    </div>
-    <div class="theme-wrapper">
-      <h6 class="text-muted mb-2">Light Theme:</h6>
-      <a class="theme-item active" href="https://www.nobleui.com/angular/template/demo1/">
-        <img src="assets/images/screenshots/light.jpg" alt="light theme">
-      </a>
-      <h6 class="text-muted mb-2">Dark Theme:</h6>
-      <a class="theme-item" href="https://www.nobleui.com/angular/template/demo2/">
-        <img src="assets/images/screenshots/dark.jpg" alt="dark theme">
-      </a>
-    </div>
   </div>
 </nav>
