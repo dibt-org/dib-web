@@ -1,18 +1,19 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { FeatherIconModule } from '../../../core/feather-icon/feather-icon.module';
+import {FeatherIconModule} from '../../../core/feather-icon/feather-icon.module';
 
-import { NgbAccordionModule, NgbDropdownModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbAccordionModule, NgbDropdownModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 
-import { GeneralComponent } from './general.component';
-import { BlankComponent } from './blank/blank.component';
-import { FaqComponent } from './faq/faq.component';
-import { InvoiceComponent } from './invoice/invoice.component';
-import { ProfileComponent } from './profile/profile.component';
-import { PricingComponent } from './pricing/pricing.component';
-import { TimelineComponent } from './timeline/timeline.component';
-import { Routes, RouterModule } from '@angular/router';
+import {GeneralComponent} from './general.component';
+import {BlankComponent} from './blank/blank.component';
+import {FaqComponent} from './faq/faq.component';
+import {InvoiceComponent} from './invoice/invoice.component';
+import {ProfileComponent} from './profile/profile.component';
+import {PricingComponent} from './pricing/pricing.component';
+import {TimelineComponent} from './timeline/timeline.component';
+import {Routes, RouterModule} from '@angular/router';
+import {TurkeyMapComponent} from "../../../components/turkey-map/turkey-map.component";
 
 const routes: Routes = [
   {
@@ -53,7 +54,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [GeneralComponent, BlankComponent, FaqComponent, InvoiceComponent, ProfileComponent, PricingComponent, TimelineComponent],
+  declarations: [GeneralComponent, BlankComponent, FaqComponent, InvoiceComponent, ProfileComponent, PricingComponent, TimelineComponent, TurkeyMapComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

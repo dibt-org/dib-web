@@ -1,0 +1,37 @@
+<div id="svg-turkiye-haritasi-container" class="d-flex flex-row justify-content-center"
+     (mousemove)="updatePopupPosition($event)">
+  <svg version="1.1" id="svg-turkiye-haritasi" xmlns="http://www.w3.org/2000/svg"
+       xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 80 1050 585" xml:space="preserve"
+       style="width: 1300px; height: auto;">
+    <g id="turkiye">
+      <g *ngFor="let city of cities" [id]="city.id" data-is-election-city="false">
+        <path
+          fill="#e0e0e0"
+          stroke="#ffffff"
+          stroke-width="1"
+          stroke-miterlimit="10"
+          stroke-linecap="butt"
+          stroke-linejoin="miter"
+          stroke-opacity="1"
+          fill-opacity="1"
+          class="svg-turkiye-haritasi-il"
+          [attr.d]="city.path"
+          (mouseenter)="showPopup(city, $event)"
+          (mouseleave)="hidePopup()"
+        ></path>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<div id="popup" class="popup" [ngClass]="{ 'active': isPopupVisible }" [style.top.px]="popupPosition.top"
+     [style.left.px]="popupPosition.left">
+  <div class="popup-content">
+    <h3>{{ popupCity.name }}</h3>
+    <p>{{ popupCity.plateNumber }}</p>
+    <p>{{ popupCity.area }}</p>
+    <p>{{ popupCity.populationDensity }}</p>
+    <p>{{ popupCity.populationGrowth }}</p>
+    <!-- Diğer şehir bilgileri -->
+  </div>
+</div>

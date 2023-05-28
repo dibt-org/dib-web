@@ -14,6 +14,7 @@ import {HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
 import {HttpClientModule} from "@angular/common/http";
 import {JWT_OPTIONS, JwtHelperService, JwtModule} from "@auth0/angular-jwt";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,8 @@ import {JWT_OPTIONS, JwtHelperService, JwtModule} from "@auth0/angular-jwt";
     },
     JwtHelperService,
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS}
+  ],
+  exports: [
   ],
   bootstrap: [AppComponent]
 })
