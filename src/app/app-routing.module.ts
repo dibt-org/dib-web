@@ -53,6 +53,10 @@ const routes: Routes = [
         path: 'general',
         loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
       },
+      {
+        path: 'blank-page',
+        component: DashboardComponent
+      },
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
