@@ -1,48 +1,49 @@
-<div class="row">
-  <div class="col-12 grid-margin">
-    <div class="card">
-      <div class="position-relative">
-        <figure class="overflow-hidden mb-0 d-flex justify-content-center">
-          <img src="https://via.placeholder.com/1148x272" class="rounded-top" alt="profile cover">
-        </figure>
-        <div class="d-flex justify-content-between align-items-center position-absolute top-90 w-100 px-2 px-md-4 mt-n4">
-          <div>
-            <img class="wd-70 rounded-circle" src="https://via.placeholder.com/100x100" alt="profile">
-            <span class="h4 ms-3 text-dark">Amiah Burton</span>
-          </div>
-          <div class="d-none d-md-block">
-            <button class="btn btn-primary btn-icon-text">
-              <i class="feather icon-edit btn-icon-prepend"></i> Edit profile
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="d-flex justify-content-center p-3 rounded-bottom">
-        <ul class="d-flex align-items-center m-0 p-0">
-          <li class="d-flex align-items-center active">
-            <i class="feather icon-columns me-1 icon-md text-primary"></i>
-            <a class="pt-1px d-none d-md-block text-primary" routerLink=".">Timeline</a>
-          </li>
-          <li class="ms-3 ps-3 border-start d-flex align-items-center">
-            <i class="feather icon-user me-1 icon-md"></i>
-            <a class="pt-1px d-none d-md-block text-body" routerLink=".">About</a>
-          </li>
-          <li class="ms-3 ps-3 border-start d-flex align-items-center">
-            <i class="feather icon-users me-1 icon-md"></i>
-            <a class="pt-1px d-none d-md-block text-body" routerLink=".">Friends <span class="text-muted tx-12">3,765</span></a>
-          </li>
-          <li class="ms-3 ps-3 border-start d-flex align-items-center">
-            <i class="feather icon-image me-1 icon-md"></i>
-            <a class="pt-1px d-none d-md-block text-body" routerLink=".">Photos</a>
-          </li>
-          <li class="ms-3 ps-3 border-start d-flex align-items-center">
-            <i class="feather icon-video me-1 icon-md"></i>
-            <a class="pt-1px d-none d-md-block text-body" routerLink=".">Videos</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="row d-none d-md-block">
+  <app-turkey-map></app-turkey-map>
+  <!--  <div class="col-12 grid-margin">-->
+  <!--    <div class="card">-->
+  <!--      <div class="position-relative">-->
+  <!--        <figure class="overflow-hidden mb-0 d-flex justify-content-center">-->
+  <!--          <img src="https://via.placeholder.com/1148x272" class="rounded-top" alt="profile cover">-->
+  <!--        </figure>-->
+  <!--        <div class="d-flex justify-content-between align-items-center position-absolute top-90 w-100 px-2 px-md-4 mt-n4">-->
+  <!--          <div>-->
+  <!--            <img class="wd-70 rounded-circle" src="https://via.placeholder.com/100x100" alt="profile">-->
+  <!--            <span class="h4 ms-3 text-dark">Amiah Burton</span>-->
+  <!--          </div>-->
+  <!--          <div class="d-none d-md-block">-->
+  <!--            <button class="btn btn-primary btn-icon-text">-->
+  <!--              <i class="feather icon-edit btn-icon-prepend"></i> Edit profile-->
+  <!--            </button>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--      <div class="d-flex justify-content-center p-3 rounded-bottom">-->
+  <!--        <ul class="d-flex align-items-center m-0 p-0">-->
+  <!--          <li class="d-flex align-items-center active">-->
+  <!--            <i class="feather icon-columns me-1 icon-md text-primary"></i>-->
+  <!--            <a class="pt-1px d-none d-md-block text-primary" routerLink=".">Timeline</a>-->
+  <!--          </li>-->
+  <!--          <li class="ms-3 ps-3 border-start d-flex align-items-center">-->
+  <!--            <i class="feather icon-user me-1 icon-md"></i>-->
+  <!--            <a class="pt-1px d-none d-md-block text-body" routerLink=".">About</a>-->
+  <!--          </li>-->
+  <!--          <li class="ms-3 ps-3 border-start d-flex align-items-center">-->
+  <!--            <i class="feather icon-users me-1 icon-md"></i>-->
+  <!--            <a class="pt-1px d-none d-md-block text-body" routerLink=".">Friends <span class="text-muted tx-12">3,765</span></a>-->
+  <!--          </li>-->
+  <!--          <li class="ms-3 ps-3 border-start d-flex align-items-center">-->
+  <!--            <i class="feather icon-image me-1 icon-md"></i>-->
+  <!--            <a class="pt-1px d-none d-md-block text-body" routerLink=".">Photos</a>-->
+  <!--          </li>-->
+  <!--          <li class="ms-3 ps-3 border-start d-flex align-items-center">-->
+  <!--            <i class="feather icon-video me-1 icon-md"></i>-->
+  <!--            <a class="pt-1px d-none d-md-block text-body" routerLink=".">Videos</a>-->
+  <!--          </li>-->
+  <!--        </ul>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
 </div>
 <div class="row profile-body">
   <!-- left wrapper start -->
@@ -56,9 +57,12 @@
               <i class="feather icon-more-horizontal icon-lg text-muted pb-3px"></i>
             </button>
             <div ngbDropdownMenu aria-labelledby="dropdownMenuButton">
-              <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i class="feather icon-edit-2 icon-sm me-2"></i> <span class="">Edit</span></a>
-              <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i class="feather icon-git-branch icon-sm me-2"></i> <span class="">Update</span></a>
-              <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i class="feather icon-eye icon-sm me-2"></i> <span class="">View all</span></a>
+              <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i
+                class="feather icon-edit-2 icon-sm me-2"></i> <span class="">Edit</span></a>
+              <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i
+                class="feather icon-git-branch icon-sm me-2"></i> <span class="">Update</span></a>
+              <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i
+                class="feather icon-eye icon-sm me-2"></i> <span class="">View all</span></a>
             </div>
           </div>
         </div>
@@ -102,27 +106,33 @@
           <div class="card-header">
             <div class="d-flex align-items-center justify-content-between">
               <div class="d-flex align-items-center">
-                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">													
+                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">
                 <div class="ms-2">
                   <p>Mike Popescu</p>
                   <p class="tx-11 text-muted">1 min ago</p>
                 </div>
               </div>
               <div ngbDropdown>
-                <button class="btn p-0 no-dropdown-toggle-icon" type="button" id="dropdownMenuButton2" ngbDropdownToggle>
+                <button class="btn p-0 no-dropdown-toggle-icon" type="button" id="dropdownMenuButton2"
+                        ngbDropdownToggle>
                   <i class="feather icon-more-horizontal icon-lg pb-3px"></i>
                 </button>
                 <div ngbDropdownMenu aria-labelledby="dropdownMenuButton2">
-                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i class="feather icon-meh icon-sm me-2"></i> <span class="">Unfollow</span></a>
-                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i class="feather icon-corner-right-up icon-sm me-2"></i> <span class="">Go to post</span></a>
-                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i class="feather icon-share-2 icon-sm me-2"></i> <span class="">Share</span></a>
-                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i class="feather icon-copy icon-sm me-2"></i> <span class="">Copy link</span></a>
+                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i
+                    class="feather icon-meh icon-sm me-2"></i> <span class="">Unfollow</span></a>
+                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i
+                    class="feather icon-corner-right-up icon-sm me-2"></i> <span class="">Go to post</span></a>
+                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i
+                    class="feather icon-share-2 icon-sm me-2"></i> <span class="">Share</span></a>
+                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i
+                    class="feather icon-copy icon-sm me-2"></i> <span class="">Copy link</span></a>
                 </div>
               </div>
             </div>
           </div>
           <div class="card-body">
-            <p class="mb-3 tx-14">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus minima delectus nemo unde quae recusandae assumenda.</p>
+            <p class="mb-3 tx-14">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus minima delectus
+              nemo unde quae recusandae assumenda.</p>
             <img class="img-fluid" src="https://via.placeholder.com/513x342" alt="">
           </div>
           <div class="card-footer">
@@ -148,21 +158,26 @@
           <div class="card-header">
             <div class="d-flex align-items-center justify-content-between">
               <div class="d-flex align-items-center">
-                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">													
+                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">
                 <div class="ms-2">
                   <p>Mike Popescu</p>
                   <p class="tx-11 text-muted">5 min ago</p>
                 </div>
               </div>
               <div ngbDropdown>
-                <button class="btn p-0 no-dropdown-toggle-icon" type="button" id="dropdownMenuButton3" ngbDropdownToggle>
+                <button class="btn p-0 no-dropdown-toggle-icon" type="button" id="dropdownMenuButton3"
+                        ngbDropdownToggle>
                   <i class="feather icon-more-horizontal icon-lg pb-3px"></i>
                 </button>
                 <div ngbDropdownMenu aria-labelledby="dropdownMenuButton2">
-                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i class="feather icon-meh icon-sm me-2"></i> <span class="">Unfollow</span></a>
-                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i class="feather icon-corner-right-up icon-sm me-2"></i> <span class="">Go to post</span></a>
-                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i class="feather icon-share-2 icon-sm me-2"></i> <span class="">Share</span></a>
-                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i class="feather icon-copy icon-sm me-2"></i> <span class="">Copy link</span></a>
+                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i
+                    class="feather icon-meh icon-sm me-2"></i> <span class="">Unfollow</span></a>
+                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i
+                    class="feather icon-corner-right-up icon-sm me-2"></i> <span class="">Go to post</span></a>
+                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i
+                    class="feather icon-share-2 icon-sm me-2"></i> <span class="">Share</span></a>
+                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i
+                    class="feather icon-copy icon-sm me-2"></i> <span class="">Copy link</span></a>
                 </div>
               </div>
             </div>
@@ -255,7 +270,7 @@
             <h6 class="card-title">suggestions for you</h6>
             <div class="d-flex justify-content-between mb-2 pb-2 border-bottom">
               <div class="d-flex align-items-center hover-pointer">
-                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">													
+                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">
                 <div class="ms-2">
                   <p>Mike Popescu</p>
                   <p class="tx-11 text-muted">12 Mutual Friends</p>
@@ -265,7 +280,7 @@
             </div>
             <div class="d-flex justify-content-between mb-2 pb-2 border-bottom">
               <div class="d-flex align-items-center hover-pointer">
-                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">													
+                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">
                 <div class="ms-2">
                   <p>Mike Popescu</p>
                   <p class="tx-11 text-muted">12 Mutual Friends</p>
@@ -275,7 +290,7 @@
             </div>
             <div class="d-flex justify-content-between mb-2 pb-2 border-bottom">
               <div class="d-flex align-items-center hover-pointer">
-                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">													
+                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">
                 <div class="ms-2">
                   <p>Mike Popescu</p>
                   <p class="tx-11 text-muted">12 Mutual Friends</p>
@@ -285,7 +300,7 @@
             </div>
             <div class="d-flex justify-content-between mb-2 pb-2 border-bottom">
               <div class="d-flex align-items-center hover-pointer">
-                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">													
+                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">
                 <div class="ms-2">
                   <p>Mike Popescu</p>
                   <p class="tx-11 text-muted">12 Mutual Friends</p>
@@ -295,7 +310,7 @@
             </div>
             <div class="d-flex justify-content-between mb-2 pb-2 border-bottom">
               <div class="d-flex align-items-center hover-pointer">
-                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">													
+                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">
                 <div class="ms-2">
                   <p>Mike Popescu</p>
                   <p class="tx-11 text-muted">12 Mutual Friends</p>
@@ -305,7 +320,7 @@
             </div>
             <div class="d-flex justify-content-between">
               <div class="d-flex align-items-center hover-pointer">
-                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">													
+                <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">
                 <div class="ms-2">
                   <p>Mike Popescu</p>
                   <p class="tx-11 text-muted">12 Mutual Friends</p>
