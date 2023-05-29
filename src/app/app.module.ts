@@ -26,7 +26,7 @@ import {JWT_OPTIONS, JwtHelperService, JwtModule} from "@auth0/angular-jwt";
     BrowserAnimationsModule,
     LayoutModule,
     HttpClientModule,
-    JwtModule
+    JwtModule,
   ],
   providers: [
     AuthGuard,
