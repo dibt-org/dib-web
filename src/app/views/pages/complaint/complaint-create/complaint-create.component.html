@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="row">
+  <div class="col-md-12 form-group">
+      <div>
+        <label for="compTittle" class="form-label">Şikayet Başlığı</label>
+        <input [(ngModel)]="newComplaint.title" type="text"  class="form-control" id="compTittle"  placeholder="Şikayetinizin başlığını giriniz...">
+        <br>
+      </div>
+      <div>
+        <label for="compCont" class="form-label">Şikayet İçeriği</label>
+        <textarea [(ngModel)]="newComplaint.content" class="form-control" id="compCont" placeholder="Şİkayetinizin detaylarını giriniz..." rows="3"></textarea>
+        <br>
+      </div>
+      <div>
+        <label for="compFile" class="form-label">Şikayet Dosyası</label>
+        <input [(ngModel)]="newComplaint.files" type="file" class="form-control" id="compFile" placeholder="Şikayet dosyanızı yükleyiniz...">
+        <br>
+      </div>
+    <button (click)="addComplaint(newComplaint)" class="btn btn-primary">Şikayet Gönder</button>
+  </div>
+</div>

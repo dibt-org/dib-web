@@ -13,6 +13,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { Routes, RouterModule } from '@angular/router';
+import {ComplaintCreateComponent} from "../complaint/complaint-create/complaint-create.component";
+import {FormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {
@@ -47,20 +49,25 @@ const routes: Routes = [
       {
         path: 'timeline',
         component: TimelineComponent
+      },
+      {
+        path: 'create-complaint',
+        component: ComplaintCreateComponent
       }
     ]
   }
 ]
 
 @NgModule({
-  declarations: [GeneralComponent, BlankComponent, FaqComponent, InvoiceComponent, ProfileComponent, PricingComponent, TimelineComponent],
+  declarations: [GeneralComponent, BlankComponent, FaqComponent, InvoiceComponent, ProfileComponent, PricingComponent, TimelineComponent, ComplaintCreateComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     FeatherIconModule,
     NgbAccordionModule,
     NgbDropdownModule,
-    NgbTooltipModule
+    NgbTooltipModule,
+    FormsModule,
   ]
 })
 export class GeneralModule { }
