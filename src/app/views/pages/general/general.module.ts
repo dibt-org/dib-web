@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { FeatherIconModule } from '../../../core/feather-icon/feather-icon.module';
+import {FeatherIconModule} from '../../../core/feather-icon/feather-icon.module';
 
-import { NgbAccordionModule, NgbDropdownModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbAccordionModule, NgbDropdownModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { GeneralComponent } from './general.component';
 import { BlankComponent } from './blank/blank.component';
@@ -15,6 +15,7 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { Routes, RouterModule } from '@angular/router';
 import {ComplaintCreateComponent} from "../complaint/complaint-create/complaint-create.component";
 import {FormsModule} from "@angular/forms";
+import {TurkeyMapComponent} from "../../../components/turkey-map/turkey-map.component";
 
 const routes: Routes = [
   {
@@ -59,7 +60,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [GeneralComponent, BlankComponent, FaqComponent, InvoiceComponent, ProfileComponent, PricingComponent, TimelineComponent, ComplaintCreateComponent],
+  declarations: [GeneralComponent, BlankComponent, FaqComponent, InvoiceComponent, ProfileComponent, PricingComponent, TimelineComponent, TurkeyMapComponent,ComplaintCreateComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
