@@ -16,6 +16,8 @@ import { Routes, RouterModule } from '@angular/router';
 import {ComplaintCreateComponent} from "../complaint/complaint-create/complaint-create.component";
 import {FormsModule} from "@angular/forms";
 import {TurkeyMapComponent} from "../../../components/turkey-map/turkey-map.component";
+import {Profilev1Component} from "../profilev1/profilev1/profilev1.component";
+import {ProfileAboutComponent} from "../profilev1/profilev1/profile-about/profile-about.component";
 
 const routes: Routes = [
   {
@@ -54,13 +56,23 @@ const routes: Routes = [
       {
         path: 'create-complaint',
         component: ComplaintCreateComponent
+      },
+      {
+        path: 'profilev1',
+        component: Profilev1Component,
+        children: [
+          {
+            path: 'about',
+            component: ProfileAboutComponent
+          }
+        ]
       }
     ]
   }
 ]
 
 @NgModule({
-  declarations: [GeneralComponent, BlankComponent, FaqComponent, InvoiceComponent, ProfileComponent, PricingComponent, TimelineComponent, TurkeyMapComponent,ComplaintCreateComponent],
+  declarations: [GeneralComponent, BlankComponent, FaqComponent, InvoiceComponent, ProfileComponent, PricingComponent, TimelineComponent, TurkeyMapComponent,ComplaintCreateComponent,Profilev1Component,ProfileAboutComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
