@@ -3,11 +3,11 @@
     <div class="card">
       <div class="position-relative">
         <figure class="overflow-hidden mb-0 d-flex justify-content-center">
-          <img src="https://via.placeholder.com/1148x272" class="rounded-top" alt="profile cover">
+          <img src="https://picsum.photos/1148/272" class="rounded-top" alt="profile cover">
         </figure>
         <div class="d-flex justify-content-between align-items-center position-absolute top-90 w-100 px-2 px-md-4 mt-n4">
           <div>
-            <img class="wd-70 rounded-circle" src="https://via.placeholder.com/100x100" alt="profile">
+            <img class="wd-70 rounded-circle" src="https://picsum.photos/100/100" alt="profile">
             <span class="h4 ms-3 text-dark">Amiah Burton</span>
           </div>
           <div class="d-none d-md-block">
@@ -20,11 +20,11 @@
       <div class="d-flex justify-content-center p-3 rounded-bottom">
         <ul class="d-flex align-items-center m-0 p-0">
           <li class="d-flex align-items-center active">
-            <i class="feather icon-columns me-1 icon-md text-primary"></i>
-            <a class="pt-1px d-none d-md-block text-primary" routerLink=".">Timeline</a>
+            <i class="feather icon-columns me-1 icon-md text-primary" routerLink="timeline"></i>
+            <a class="pt-1px d-none d-md-block text-primary" routerLink="timeline">Timeline</a>
           </li>
           <li class="ms-3 ps-3 border-start d-flex align-items-center">
-            <i class="feather icon-user me-1 icon-md"></i>
+            <i class="feather icon-user me-1 icon-md" routerLink="about"></i>
             <a class="pt-1px d-none d-md-block text-body" routerLink="about">About</a>
           </li>
           <li class="ms-3 ps-3 border-start d-flex align-items-center">
@@ -44,6 +44,6 @@
     </div>
   </div>
 </div>
-<div class="">
+<div >
   <router-outlet></router-outlet>
 </div>
