@@ -13,6 +13,7 @@ import {ErrorPageComponent} from './views/pages/error-page/error-page.component'
 import {HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
 import {HttpClientModule} from "@angular/common/http";
 import {JWT_OPTIONS, JwtHelperService, JwtModule} from "@auth0/angular-jwt";
+import {NgbAccordionModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {JWT_OPTIONS, JwtHelperService, JwtModule} from "@auth0/angular-jwt";
     LayoutModule,
     HttpClientModule,
     JwtModule,
+    NgbAccordionModule,
   ],
   providers: [
     AuthGuard,
