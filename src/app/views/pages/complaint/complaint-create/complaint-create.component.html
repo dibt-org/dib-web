@@ -12,7 +12,7 @@
       </div>
       <div>
         <label for="compFile" class="form-label">Şikayet Dosyası</label>
-        <input [(ngModel)]="newComplaint.files" type="file" class="form-control" id="compFile" placeholder="Şikayet dosyanızı yükleyiniz...">
+        <input accept=".jpg,.png" multiple [(ngModel)]="newComplaint.files" type="file" class="form-control" id="compFile" placeholder="Şikayet dosyanızı yükleyiniz...">
         <br>
       </div>
     <button (click)="addComplaint(newComplaint)" class="btn btn-primary">Şikayet Gönder</button>
