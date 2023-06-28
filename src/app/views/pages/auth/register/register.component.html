@@ -4,40 +4,83 @@
       <div class="row">
         <div class="col-md-4 pe-md-0">
           <div class="auth-side-wrapper" [ngStyle]="{ 'background-image': 'url(https://via.placeholder.com/219x452)' }">
-
           </div>
         </div>
         <div class="col-md-8 ps-md-0">
           <div class="auth-form-wrapper px-4 py-5">
             <a routerLink="." class="dibtui-logo d-block mb-2">Noble<span>UI</span></a>
-            <h5 class="text-muted fw-normal mb-4">Create a free account.</h5>
-            <form class="forms-sample">
+            <h5 class="text-muted fw-normal mb-4">Ücretsiz bir hesap oluşturun.</h5>
+            <form class="forms-sample" #registerForm="ngForm">
               <div class="mb-3">
-                <label for="exampleInputUsername1" class="form-label">Username</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" autocomplete="Username" placeholder="Username">
+                <label for="username" class="form-label">Kullanıcı Adı</label>
+                <input class="form-control" type="text" placeholder="Kullanıcı Adı"
+                       id="username"
+                       name="username"
+                       ngModel
+                       #username="ngModel"
+                       required
+                       minlength="3"
+                />
+                <p class="text-danger mt-1" *ngIf="username.touched && username.errors?.required">Bu alan
+                  zorunludur.</p>
+                <p class="text-danger mt-1" *ngIf="username.touched && username.errors?.minlength">En az 3 karakter
+                  olmalı.</p>
               </div>
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                <label for="email" class="form-label">E-posta Adresi</label>
+                <input type="email" class="form-control" id="email" placeholder="E-posta" required
+                       ngModel
+                       email
+                       name="email"
+                       pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                       #email="ngModel"
+                />
+                <p class="text-danger mt-1" *ngIf="email.touched && email.errors?.required">Bu alan zorunludur.</p>
+                <p class="text-danger mt-1" *ngIf="email.touched && email.errors?.email||email.errors?.pattern">Geçerli
+                  bir e-posta adresi
+                  girin.</p>
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" autocomplete="current-password" placeholder="Password">
+                <label for="password" class="form-label">Şifre</label>
+                <input type="password" class="form-control" id="password" autocomplete="current-password"
+                       placeholder="Şifre"
+                       required
+                       ngModel
+                       name="password"
+                       #password="ngModel"
+                       minlength="6"
+                />
+                <p class="text-danger mt-1" *ngIf="password.touched && password.errors?.required">Bu alan
+                  zorunludur.</p>
+                <p class="text-danger mt-1" *ngIf="password.touched && password.errors?.minlength">En az 6 karakter
+                  olmalı.</p>
               </div>
-              <div class="form-check mb-3">
-                <input type="checkbox" class="form-check-input" id="authCheck">
-                <label class="form-check-label" for="authCheck">
-                  Remember me
-                </label>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Şifre Tekrar</label>
+                <input type="password" class="form-control" id="confirmPassword" autocomplete="current-password"
+                       placeholder="Şifre Tekrar"
+                       required
+                       ngModel
+                       name="confirmPassword"
+                       #confirmPassword="ngModel"
+                />
+                <p class="text-danger mt-1" *ngIf="confirmPassword.touched && confirmPassword.value!==password.value">
+                  Şifreler
+                  eşleşmiyor.</p>
               </div>
               <div>
-                <button type="submit" class="btn btn-primary me-2 mb-2 mb-md-0" (click)="onRegister($event)">Sign up</button>
-                <button type="button" class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
-                  <i class="feather icon-twitter btn-icon-prepend"></i>
-                  Sign up with twitter
+                <button *ngIf="!isLoading"
+                        type="submit" class="btn btn-primary me-2 mb-2 mb-md-0"
+                        [disabled]="!registerForm.valid||password.value!==confirmPassword.value"
+                        (click)="onRegister(registerForm)">
+                  Kayıt Ol
+                </button>
+                <button *ngIf="isLoading" class="btn btn-primary" type="button" disabled>
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  <span class="visually-hidden">Loading...</span>
                 </button>
               </div>
-              <a routerLink="/auth/login" class="d-block mt-3 text-muted">Already a user? Sign in</a>
+              <a routerLink="/auth/login" class="d-block mt-3 text-muted">Zaten bir hesabınız var mı? Giriş yapın</a>
             </form>
           </div>
         </div>

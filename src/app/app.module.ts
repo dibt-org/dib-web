@@ -11,8 +11,9 @@ import {AppComponent} from './app.component';
 import {ErrorPageComponent} from './views/pages/error-page/error-page.component';
 
 import {HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JWT_OPTIONS, JwtHelperService, JwtModule} from "@auth0/angular-jwt";
+import {TokenInterceptor} from "./core/interceptors/token.interceptor";
 
 
 @NgModule({
@@ -42,10 +43,10 @@ import {JWT_OPTIONS, JwtHelperService, JwtModule} from "@auth0/angular-jwt";
       }
     },
     JwtHelperService,
-    {provide: JWT_OPTIONS, useValue: JWT_OPTIONS}
+    {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
   ],
-  exports: [
-  ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

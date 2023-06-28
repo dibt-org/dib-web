@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {FeatherIconModule} from '../../../core/feather-icon/feather-icon.module';
 
-import {NgbAccordionModule, NgbDropdownModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbAccordionModule, NgbCarouselModule, NgbDropdownModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {GeneralComponent} from './general.component';
 import {BlankComponent} from './blank/blank.component';
@@ -18,7 +18,8 @@ import {FormsModule} from "@angular/forms";
 import {TurkeyMapComponent} from "../../../components/turkey-map/turkey-map.component";
 import {ProfileAboutComponent} from "./profile/profile-about/profile-about.component";
 import {MainComponent} from './main/main.component';
-import { ProfileTimelineComponent } from './profile/profile-timeline/profile-timeline.component';
+import {ProfileTimelineComponent} from './profile/profile-timeline/profile-timeline.component';
+import {CarouselModule} from "ngx-owl-carousel-o";
 
 const routes: Routes = [
   {
@@ -82,6 +83,8 @@ const routes: Routes = [
     NgbDropdownModule,
     NgbTooltipModule,
     FormsModule,
+    CarouselModule,
+    NgbCarouselModule
   ]
 })
 export class GeneralModule {
