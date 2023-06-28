@@ -1,0 +1,83 @@
+<ngb-accordion [closeOthers]="true" activeIds="static-1">
+  <ngb-panel id="static-1" title="Şifreni Düzenle">
+    <ng-template ngbPanelContent>
+      <form>
+        <div class="row">
+          <div class="mb-12 pb-3 col-12">
+            <label for="oldPassword" class="form-label">Eski Şifrenizi Giriniz</label>
+            <input type="password" class="form-control" id="oldPassword" autocomplete="off" >
+          </div>
+          <div class="col-12 col-md-6">
+            <label for="newPassword" class="form-label">Yeni Şifrenizi Giriniz</label>
+            <input type="password" class="form-control" id="newPassword" autocomplete="off" >
+          </div>
+          <div class="col-12 col-md-6">
+            <label for="exampleInputPassword1" class="form-label">Yeni Şifrenizi Tekrar Giriniz</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" autocomplete="off" >
+          </div>
+        </div>
+      </form>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="static-2" title="E-postanı Düzenle">
+    <ng-template ngbPanelContent>
+      <form>
+        <div class="row">
+          <div class="col-6 mb-3">
+            <label for="oldEmail" class="form-label">Eski Email adresinizi giriniz</label>
+            <input type="email" class="form-control" id="oldEmail" placeholder="Email">
+          </div>
+          <div class="col-6 mb-3">
+            <label for="newEmail" class="form-label">Yeni Email addresinizi giriniz</label>
+            <input type="email" class="form-control" id="newEmail" placeholder="Email">
+          </div>
+        </div>
+      </form>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="static-3" title="Profil Bilgilerini Düzenle">
+    <ng-template ngbPanelTitle>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <form>
+        <div class="row">
+          <div class="col-12 mb-3 pb-3px">
+            <label for="exampleFormControlTextarea1" class="form-label">Hakkımda</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <div class="col-6 mb-3">
+            <label for="cities" class="form-label">Şehrinizi Seçiniz</label>
+            <select class="form-select" id="cities">
+            <option selected disabled>Şehrinizi Seçiniz</option>
+            <option>İstanbul</option>
+            <option>Ankara</option>
+            <option>İzmir</option>
+            <option>Bursa</option>
+            </select>
+          </div>
+          <div class="col-6 mb-3">
+            <label for="exampleFormControlSelect1" class="form-label">İlçenizi Seçiniz</label>
+            <select class="form-select" id="exampleFormControlSelect1">
+              <option selected disabled>İlçenizi Seçiniz</option>
+              <option>Ataşehir</option>
+              <option>Üsküdar</option>
+              <option>Kadıköy</option>
+              <option>Göztepe</option>
+              <option>Maltepe</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </ng-template>
+  </ngb-panel>
+<!--  <ngb-panel id="static-3" title="Disabled" [disabled]="true">-->
+<!--    <ng-template ngbPanelContent>-->
+<!--      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia-->
+<!--      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,-->
+<!--      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,-->
+<!--      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings-->
+<!--      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus-->
+<!--      labore sustainable VHS.-->
+<!--    </ng-template>-->
+<!--  </ngb-panel>-->
+</ngb-accordion>

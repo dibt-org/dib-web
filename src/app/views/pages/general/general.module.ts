@@ -20,6 +20,9 @@ import {ProfileAboutComponent} from "./profile/profile-about/profile-about.compo
 import {MainComponent} from './main/main.component';
 import {ProfileTimelineComponent} from './profile/profile-timeline/profile-timeline.component';
 import {CarouselModule} from "ngx-owl-carousel-o";
+import { ProfileTimelineComponent } from './profile/profile-timeline/profile-timeline.component';
+import { SettingsComponent} from "../settings/settings.component";
+
 
 const routes: Routes = [
   {
@@ -68,13 +71,17 @@ const routes: Routes = [
       {
         path: 'create-complaint',
         component: ComplaintCreateComponent
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent
       }
     ]
   }
 ]
 
 @NgModule({
-  declarations: [GeneralComponent, BlankComponent, FaqComponent, InvoiceComponent, ProfileComponent, PricingComponent, TurkeyMapComponent, ComplaintCreateComponent, ProfileAboutComponent, MainComponent, ProfileTimelineComponent],
+  declarations: [GeneralComponent, BlankComponent, FaqComponent, InvoiceComponent, ProfileComponent, PricingComponent, TurkeyMapComponent, ComplaintCreateComponent, ProfileAboutComponent, MainComponent, ProfileTimelineComponent, SettingsComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

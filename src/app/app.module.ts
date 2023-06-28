@@ -14,6 +14,8 @@ import {HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JWT_OPTIONS, JwtHelperService, JwtModule} from "@auth0/angular-jwt";
 import {TokenInterceptor} from "./core/interceptors/token.interceptor";
+import {NgbAccordionModule} from "@ng-bootstrap/ng-bootstrap";
+
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import {TokenInterceptor} from "./core/interceptors/token.interceptor";
     LayoutModule,
     HttpClientModule,
     JwtModule,
+    NgbAccordionModule,
   ],
   providers: [
     AuthGuard,
