@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8080/api/v1/'
+  baseUrl: 'https://test-dibt.up.railway.app/api/v1/'
 };
 
 /*

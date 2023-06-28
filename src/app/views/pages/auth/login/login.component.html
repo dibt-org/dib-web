@@ -14,11 +14,13 @@
             <form #loginForm="ngForm" class="forms-sample">
               <div class="mb-3">
                 <label for="username" class="form-label">Kullancı Adı</label>
-                <input name="username" #username="ngModel" ngModel type="email" class="form-control" id="username" placeholder="Kullanıcı Adı" >
+                <input name="username" #username="ngModel" ngModel type="email" class="form-control" id="username"
+                       placeholder="Kullanıcı Adı">
               </div>
               <div class="mb-3">
                 <label for="password" class="form-label">Şifre</label>
-                <input name="password" #password="ngModel" ngModel type="password" class="form-control" id="password" autocomplete="current-password" placeholder="Şifre" >
+                <input name="password" #password="ngModel" ngModel type="password" class="form-control" id="password"
+                       autocomplete="current-password" placeholder="Şifre">
               </div>
               <div class="form-check mb-3">
                 <input type="checkbox" class="form-check-input" id="authCheck">
@@ -27,7 +29,13 @@
                 </label>
               </div>
               <div>
-                <button type="submit" class="btn btn-primary me-2 mb-2 mb-md-0" (click)="login(loginForm)">Giriş</button>
+                <button *ngIf="!isLoading" type="submit" class="btn btn-primary me-2 mb-2 mb-md-0"
+                        (click)="login(loginForm)">Giriş
+                </button>
+                <button *ngIf="isLoading" class="btn btn-primary" type="button" disabled>
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  <span class="visually-hidden">Loading...</span>
+                </button>
               </div>
               <a routerLink="/auth/register" class="d-block mt-3 text-muted">Hesabın Yok mu? Kayıt Ol</a>
             </form>
