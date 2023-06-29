@@ -3,7 +3,13 @@ import {CommonModule} from '@angular/common';
 
 import {FeatherIconModule} from '../../../core/feather-icon/feather-icon.module';
 
-import {NgbAccordionModule, NgbCarouselModule, NgbDropdownModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbAccordionModule,
+  NgbCarouselModule,
+  NgbDatepickerModule,
+  NgbDropdownModule,
+  NgbTooltipModule
+} from '@ng-bootstrap/ng-bootstrap';
 
 import {GeneralComponent} from './general.component';
 import {BlankComponent} from './blank/blank.component';
@@ -90,7 +96,8 @@ const routes: Routes = [
     NgbTooltipModule,
     FormsModule,
     CarouselModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    NgbDatepickerModule
   ]
 })
 export class GeneralModule {

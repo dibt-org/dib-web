@@ -1,19 +1,100 @@
-<ngb-accordion [closeOthers]="true" activeIds="static-1">
+<ngb-accordion [closeOthers]="true" [activeIds]="[!isVerified?'static-0':'static-1']">
+  <ngb-panel *ngIf="!isVerified" id="static-0" title="Hesabını Doğrula">
+    <ng-template ngbPanelContent>
+      <form class="forms-sample" #verifyForm="ngForm">
+        <div class="mb-3">
+          <label for="firstName" class="form-label">Ad</label>
+          <input class="form-control" type="text" placeholder="Ad"
+                 id="firstName"
+                 name="firstName"
+                 ngModel
+                 #firstName="ngModel"
+                 required
+                 minlength="2"
+          />
+          <p class="text-danger mt-1" *ngIf="firstName.touched && firstName.errors?.required">Bu alan
+            zorunludur.</p>
+          <p class="text-danger mt-1" *ngIf="firstName.touched && firstName.errors?.minlength">En az 2 karakter
+            olmalı.</p>
+        </div>
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Soyad</label>
+          <input class="form-control" type="text" placeholder="Soyad"
+                 id="lastName"
+                 name="lastName"
+                 ngModel
+                 #lastName="ngModel"
+                 required
+                 minlength="2"
+          />
+          <p class="text-danger mt-1" *ngIf="lastName.touched && lastName.errors?.required">Bu alan
+            zorunludur.</p>
+          <p class="text-danger mt-1" *ngIf="lastName.touched && lastName.errors?.minlength">En az 2 karakter
+            olmalı.</p>
+        </div>
+        <div class="mb-3">
+          <label for="tc" class="form-label">Tc Kimlik No</label>
+          <input type="text" class="form-control" id="tc" autocomplete="off"
+                 placeholder="Tc Kimlik No"
+                 required
+                 ngModel
+                 name="nationalityId"
+                 #nationalityId="ngModel"
+                 minlength="11"
+                 maxlength="11"
+                 min="11"
+                 max="11"
+                 pattern="^[0-9]*$"
+          />
+          <p class="text-danger mt-1" *ngIf="nationalityId.touched && nationalityId.errors?.required">Bu alan
+            zorunludur.</p>
+          <p class="text-danger mt-1"
+             *ngIf="nationalityId.touched && (nationalityId.errors?.minlength || nationalityId.errors?.maxlength)">Tc
+            Kimlik No 11
+            haneli olmalı.</p>
+          <p class="text-danger mt-1" *ngIf="nationalityId.touched &&nationalityId.errors?.pattern">Tc Kimlik No
+            sadece rakamlardan oluşmalı.</p>
+        </div>
+        <div class="mb-3">
+          <label for="birthDate" class="form-label">Doğum Tarihi</label>
+          <div class="input-group">
+            <input (click)="d.toggle()" class="form-control" placeholder="yyyy-mm-dd" id="birthDate"
+                   name="dp" ngModel #birthDate="ngModel" ngbDatepicker #d="ngbDatepicker">
+            <button class="input-group-text" type="button" (click)="d.toggle()">
+              <i class="feather icon-calendar icon-md text-muted"></i>
+            </button>
+          </div>
+        </div>
+        <div>
+          <button *ngIf="!isLoading"
+                  type="submit" class="btn btn-primary me-2 mb-2 mb-md-0"
+
+                  (click)="onVerify(verifyForm)">
+           Kaydet
+          </button>
+          <button *ngIf="isLoading" class="btn btn-primary" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span class="visually-hidden">Loading...</span>
+          </button>
+        </div>
+      </form>
+    </ng-template>
+  </ngb-panel>
   <ngb-panel id="static-1" title="Şifreni Düzenle">
     <ng-template ngbPanelContent>
       <form>
         <div class="row">
           <div class="mb-12 pb-3 col-12">
             <label for="oldPassword" class="form-label">Eski Şifrenizi Giriniz</label>
-            <input type="password" class="form-control" id="oldPassword" autocomplete="off" >
+            <input type="password" class="form-control" id="oldPassword" autocomplete="off">
           </div>
           <div class="col-12 col-md-6">
             <label for="newPassword" class="form-label">Yeni Şifrenizi Giriniz</label>
-            <input type="password" class="form-control" id="newPassword" autocomplete="off" >
+            <input type="password" class="form-control" id="newPassword" autocomplete="off">
           </div>
           <div class="col-12 col-md-6">
             <label for="exampleInputPassword1" class="form-label">Yeni Şifrenizi Tekrar Giriniz</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" autocomplete="off" >
+            <input type="password" class="form-control" id="exampleInputPassword1" autocomplete="off">
           </div>
         </div>
       </form>
@@ -48,11 +129,11 @@
           <div class="col-6 mb-3">
             <label for="cities" class="form-label">Şehrinizi Seçiniz</label>
             <select class="form-select" id="cities">
-            <option selected disabled>Şehrinizi Seçiniz</option>
-            <option>İstanbul</option>
-            <option>Ankara</option>
-            <option>İzmir</option>
-            <option>Bursa</option>
+              <option selected disabled>Şehrinizi Seçiniz</option>
+              <option>İstanbul</option>
+              <option>Ankara</option>
+              <option>İzmir</option>
+              <option>Bursa</option>
             </select>
           </div>
           <div class="col-6 mb-3">
@@ -70,14 +151,14 @@
       </form>
     </ng-template>
   </ngb-panel>
-<!--  <ngb-panel id="static-3" title="Disabled" [disabled]="true">-->
-<!--    <ng-template ngbPanelContent>-->
-<!--      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia-->
-<!--      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,-->
-<!--      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,-->
-<!--      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings-->
-<!--      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus-->
-<!--      labore sustainable VHS.-->
-<!--    </ng-template>-->
-<!--  </ngb-panel>-->
+  <!--  <ngb-panel id="static-3" title="Disabled" [disabled]="true">-->
+  <!--    <ng-template ngbPanelContent>-->
+  <!--      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia-->
+  <!--      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,-->
+  <!--      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,-->
+  <!--      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings-->
+  <!--      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus-->
+  <!--      labore sustainable VHS.-->
+  <!--    </ng-template>-->
+  <!--  </ngb-panel>-->
 </ngb-accordion>
