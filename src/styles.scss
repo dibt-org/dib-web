@@ -1,9 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-
 // Global icon font
 @import "./assets/fonts/feather/style.css";
-
 
 // // 3rd party plugins
 @import "@mdi/font/css/materialdesignicons.min.css";
@@ -22,10 +20,15 @@
 @import "@swimlane/ngx-datatable/themes/bootstrap.css";
 @import "@swimlane/ngx-datatable/assets/icons.css";
 
-
 // NobleUI styles for LTR
 @import "./assets/scss/style";
 
 
 // NobleUI styles For RTL
 // @import "./assets/scss/style.rtl.css";
+
+#btn-compliment {
+  position: sticky !important;
+  bottom: 20px !important;
+  z-index: 999;
+}

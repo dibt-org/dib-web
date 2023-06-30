@@ -27,6 +27,7 @@ import {MainComponent} from './main/main.component';
 import {ProfileTimelineComponent} from './profile/profile-timeline/profile-timeline.component';
 import {CarouselModule} from "ngx-owl-carousel-o";
 import { SettingsComponent} from "../settings/settings.component";
+import {MentionModule} from "angular-mentions";
 
 
 const routes: Routes = [
@@ -87,18 +88,19 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [GeneralComponent, BlankComponent, FaqComponent, InvoiceComponent, ProfileComponent, PricingComponent, TurkeyMapComponent, ComplaintCreateComponent, ProfileAboutComponent, MainComponent, ProfileTimelineComponent, SettingsComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    FeatherIconModule,
-    NgbAccordionModule,
-    NgbDropdownModule,
-    NgbTooltipModule,
-    FormsModule,
-    CarouselModule,
-    NgbCarouselModule,
-    NgbDatepickerModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        FeatherIconModule,
+        NgbAccordionModule,
+        NgbDropdownModule,
+        NgbTooltipModule,
+        FormsModule,
+        CarouselModule,
+        NgbCarouselModule,
+        NgbDatepickerModule,
+        MentionModule
+    ]
 })
 export class GeneralModule {
 }

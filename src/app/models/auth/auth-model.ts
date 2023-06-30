@@ -7,10 +7,6 @@ export class AuthModel {
   }
 
   public get accessToken(): string | null {
-    console.log("new Date(): ", new Date())
-    console.log("this.getExpirationDate(this._expiresIn): ", this.getExpirationDate(this._expires_in))
-    console.log("new Date() > this.getExpirationDate(this._expiresIn): ", new Date() > this.getExpirationDate(this._expires_in))
-
     if (new Date() > this.getExpirationDate(this._expires_in)) {
       return null;
     }

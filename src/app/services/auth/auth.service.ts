@@ -46,7 +46,6 @@ export class AuthService {
 
   public autoLogin(): void {
     const authModelString = localStorage.getItem('auth');
-    console.log("authModelString: ", authModelString)
     if (authModelString) {
       const a = JSON.parse(authModelString);
       const authModel: AuthModel = new AuthModel(a._access_token, a._refresh_token, a._access_expires_in);
@@ -55,9 +54,7 @@ export class AuthService {
         this.authModel.next(authModel);
         const expirationTime = this.jwtHelperService.getTokenExpirationDate(token)?.getTime() ?? 0;
         this.setAutoLogoutTimer(expirationTime);
-        console.log("Token is not expired")
       } else {
-        console.log("Token is expired")
         this.logout();
       }
     }
@@ -75,10 +72,8 @@ export class AuthService {
         this.completeLogout();
       },
       error: (error) => {
-        console.log(error);
       },
       complete: () => {
-        console.log("Logout completed");
       }
     });
   }

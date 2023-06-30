@@ -16,4 +16,8 @@ export class PostService {
   getPosts(): Observable<DataResult<GetAllPostDto[]>> {
     return this.http.get<DataResult<GetAllPostDto[]>>(environment.baseUrl + "post");
   }
+
+  getPostByUser(userId: number): Observable<DataResult<GetAllPostDto[]>> {
+    return this.http.get<DataResult<GetAllPostDto[]>>(environment.baseUrl + `post/get-user-posts?userId=${userId}`);
+  }
 }

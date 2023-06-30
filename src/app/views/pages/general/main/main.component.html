@@ -89,7 +89,8 @@
           <div class="card-body">
             <p class="mb-3 tx-14">{{post.content}}</p>
             <img *ngIf="post.mediaUrls&&post.mediaUrls.length===1" class="img-fluid" [src]="post.mediaUrls[0]" alt="">
-            <ngb-carousel *ngIf="post.mediaUrls&&post.mediaUrls.length>1" class="carousel-fade" [showNavigationArrows]="true" [showNavigationIndicators]="true">
+            <ngb-carousel *ngIf="post.mediaUrls&&post.mediaUrls.length>1" class="carousel-fade"
+                          [showNavigationArrows]="true" [showNavigationIndicators]="true">
               <ng-template ngbSlide *ngFor="let image of post.mediaUrls">
                 <div class="picsum-img-wrapper">
                   <img [src]="image" class="d-block w-100" alt="Random slide">
@@ -249,9 +250,10 @@
 </div>
 
 <!-- Button trigger lg modal -->
-<button class="btn btn-primary btn-icon-text position-fixed sticky-bottom mb-5 ml--5" (click)="openLgModal(lgModal)">
+<button id="btn-compliment" class="btn btn-primary btn-icon-text  mb-5 ml--5" (click)="openLgModal(lgModal)">
   +<i class="feather icon-edit-3 btn-icon-append"></i>
 </button>
+
 <!-- Modal -->
 <ng-template #lgModal let-modal>
   <div class="modal-header">

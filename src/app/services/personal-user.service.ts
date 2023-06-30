@@ -6,6 +6,8 @@ import {Observable} from "rxjs";
 import {tap} from "rxjs/operators";
 import {UpdatePersonalUserDto} from "../models/personal-user/update-personal-user-dto";
 import {UpdatedPersonalUserDto} from "../models/personal-user/updated-personal-user-dto";
+import {DataResult} from "../models/base-models/data-result";
+import {UserDetailDto} from "../models/personal-user/user-detail-dto";
 
 
 @Injectable({
@@ -23,7 +25,6 @@ export class PersonalUserService {
           localStorage.setItem("isVerified", result.success.toString());
         },
         error: (error) => {
-          console.log(error);
           localStorage.setItem("isVerified", "false");
         }
       }));
@@ -31,5 +32,9 @@ export class PersonalUserService {
 
   public updatePersonalUser(updatePersonalUserDto: UpdatePersonalUserDto): Observable<UpdatedPersonalUserDto> {
     return this.http.post<UpdatedPersonalUserDto>(environment.baseUrl + "personal-user", updatePersonalUserDto);
+  }
+
+  getUserDetail(): Observable<DataResult<UserDetailDto>> {
+    return this.http.get<DataResult<UserDetailDto>>(environment.baseUrl + "personal-user/detail");
   }
 }

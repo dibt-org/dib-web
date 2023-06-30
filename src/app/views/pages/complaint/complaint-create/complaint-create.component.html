@@ -8,14 +8,14 @@
     </div>
     <div>
       <label for="compCont" class="form-label">Şikayet İçeriği</label>
-      <textarea [(ngModel)]="newComplaint.content" (input)="showPopup($event)" (ngModelChange)="onContentChange()"
+      <textarea [mention]="httpItems | async"  (searchTerm)='search($event)' [(ngModel)]="newComplaint.content"
                 class="form-control" id="compCont" placeholder="Şikayetinizin detaylarını giriniz..."
                 rows="3"></textarea>
       <br>
     </div>
     <div>
       <label for="compFile" class="form-label">Şikayet Dosyası</label>
-      <input [(ngModel)]="newComplaint.files" type="file" class="form-control" id="compFile"
+      <input [(ngModel)]="newComplaint.files" type="file" accept="image/*, video/*" class="form-control" id="compFile"
              placeholder="Şikayet dosyanızı yükleyiniz...">
       <br>
     </div>
