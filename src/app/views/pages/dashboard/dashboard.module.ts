@@ -1,21 +1,28 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {Routes, RouterModule} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
-import { FeatherIconModule } from 'src/app/core/feather-icon/feather-icon.module';
-import { NgbDropdownModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import {FeatherIconModule} from 'src/app/core/feather-icon/feather-icon.module';
+import {NgbDropdownModule, NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap';
 
 // Ng-ApexCharts
-import { NgApexchartsModule } from "ng-apexcharts";
+import {NgApexchartsModule} from "ng-apexcharts";
 
-import { DashboardComponent } from './dashboard.component';
+import {DashboardComponent} from './dashboard.component';
 import {MainComponent} from "../general/main/main.component";
+import {SearchComponent} from "../general/search/search.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent
+    component: MainComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'search',
+    component: SearchComponent,
+    pathMatch: 'full'
   }
 ]
 
@@ -31,4 +38,5 @@ const routes: Routes = [
     NgApexchartsModule
   ]
 })
-export class DashboardModule { }
+export class DashboardModule {
+}

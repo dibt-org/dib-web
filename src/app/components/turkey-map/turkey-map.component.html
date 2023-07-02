@@ -6,7 +6,7 @@
     <g id="turkiye">
       <g *ngFor="let city of cities" [id]="city.id" data-is-election-city="false">
         <path
-          fill="#e0e0e0"
+          [attr.fill]="getColor(city.plateNumber)"
           stroke="#ffffff"
           stroke-width="1"
           stroke-miterlimit="10"

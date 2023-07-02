@@ -1,24 +1,29 @@
 <div class="row">
-  <div class="col-md-12 form-group">
-    <div>
-      <label for="compTittle" class="form-label">Şikayet Başlığı</label>
-      <input [(ngModel)]="newComplaint.title" type="text" class="form-control" id="compTittle"
-             placeholder="Şikayetinizin başlığını giriniz...">
-      <br>
+  <form #postForm="ngForm" enctype="multipart/form-data">
+    <div class="col-md-12 form-group">
+      <div>
+        <label for="title" class="form-label">Şikayet Başlığı</label>
+        <input required  ngModel #title="ngModel" name="title" id="title" type="text" class="form-control"
+               placeholder="Şikayetinizin başlığını giriniz...">
+        <br>
+      </div>
+      <div>
+        <label for="content" class="form-label">Şikayet İçeriği</label>
+        <textarea required [mention]="httpItems | async" (searchTerm)='search($event)' (itemSelected)="addMention($event)" ngModel #content="ngModel" name="content"
+                  id="content"
+                  class="form-control" placeholder="Şikayetinizin detaylarını giriniz..."
+                  rows="3"></textarea>
+        <br>
+      </div>
+      <div>
+        <label for="files" class="form-label">Şikayet Dosyası</label>
+        <input ngModel #files="ngModel" name="files" id="files" type="file" accept="image/*, video/*"
+               class="form-control"
+              (change)="onFileSelected($event)"
+               placeholder="Şikayet dosyanızı yükleyiniz..." multiple>
+        <br>
+      </div>
+      <button (click)="addComplaint(postForm)" class="btn btn-primary">Şikayet Gönder</button>
     </div>
-    <div>
-      <label for="compCont" class="form-label">Şikayet İçeriği</label>
-      <textarea [mention]="httpItems | async"  (searchTerm)='search($event)' [(ngModel)]="newComplaint.content"
-                class="form-control" id="compCont" placeholder="Şikayetinizin detaylarını giriniz..."
-                rows="3"></textarea>
-      <br>
-    </div>
-    <div>
-      <label for="compFile" class="form-label">Şikayet Dosyası</label>
-      <input [(ngModel)]="newComplaint.files" type="file" accept="image/*, video/*" class="form-control" id="compFile"
-             placeholder="Şikayet dosyanızı yükleyiniz...">
-      <br>
-    </div>
-    <button (click)="addComplaint(newComplaint)" class="btn btn-primary">Şikayet Gönder</button>
-  </div>
+  </form>
 </div>

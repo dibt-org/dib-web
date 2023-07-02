@@ -7,7 +7,7 @@ import {
   NgbAccordionModule,
   NgbCarouselModule,
   NgbDatepickerModule,
-  NgbDropdownModule,
+  NgbDropdownModule, NgbNavModule,
   NgbTooltipModule
 } from '@ng-bootstrap/ng-bootstrap';
 
@@ -26,8 +26,10 @@ import {ProfileAboutComponent} from "./profile/profile-about/profile-about.compo
 import {MainComponent} from './main/main.component';
 import {ProfileTimelineComponent} from './profile/profile-timeline/profile-timeline.component';
 import {CarouselModule} from "ngx-owl-carousel-o";
-import { SettingsComponent} from "../settings/settings.component";
+import {SettingsComponent} from "../settings/settings.component";
 import {MentionModule} from "angular-mentions";
+import {SearchComponent} from './search/search.component';
+import {PerfectScrollbarModule} from "ngx-perfect-scrollbar";
 
 
 const routes: Routes = [
@@ -81,26 +83,32 @@ const routes: Routes = [
       {
         path: 'settings',
         component: SettingsComponent
+      },
+      {
+        path: 'search',
+        component: SearchComponent
       }
     ]
   }
 ]
 
 @NgModule({
-  declarations: [GeneralComponent, BlankComponent, FaqComponent, InvoiceComponent, ProfileComponent, PricingComponent, TurkeyMapComponent, ComplaintCreateComponent, ProfileAboutComponent, MainComponent, ProfileTimelineComponent, SettingsComponent],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        FeatherIconModule,
-        NgbAccordionModule,
-        NgbDropdownModule,
-        NgbTooltipModule,
-        FormsModule,
-        CarouselModule,
-        NgbCarouselModule,
-        NgbDatepickerModule,
-        MentionModule
-    ]
+  declarations: [GeneralComponent, BlankComponent, FaqComponent, InvoiceComponent, ProfileComponent, PricingComponent, TurkeyMapComponent, ComplaintCreateComponent, ProfileAboutComponent, MainComponent, ProfileTimelineComponent, SettingsComponent, SearchComponent],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FeatherIconModule,
+    NgbAccordionModule,
+    NgbDropdownModule,
+    NgbTooltipModule,
+    FormsModule,
+    CarouselModule,
+    NgbCarouselModule,
+    NgbDatepickerModule,
+    MentionModule,
+    NgbNavModule,
+    PerfectScrollbarModule
+  ]
 })
 export class GeneralModule {
 }
