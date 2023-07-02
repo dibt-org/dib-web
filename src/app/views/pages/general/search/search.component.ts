@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NgForm} from "@angular/forms";
+import {SearchUser} from "../../../../models/user/search-user-dto";
+import {UserService} from "../../../../services/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-search',
@@ -8,10 +12,14 @@ import { Component, OnInit } from '@angular/core';
 export class SearchComponent implements OnInit {
 
   defaultNavActiveId = 1;
+  searchResult: SearchUser[] = [];
+  loading = false;
 
-  constructor() { }
+  constructor(private userService: UserService, private router: Router) {
+  }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   ngAfterViewInit(): void {
 
@@ -34,4 +42,24 @@ export class SearchComponent implements OnInit {
 
   }
 
+  searchUser(form: NgForm) {
+    this.loading = true;
+    this.userService.searchUser(form.value.search).subscribe({
+      next: res => {
+        this.searchResult = res.data;
+        this.loading = false;
+      },
+      error: err => {
+        this.loading = false;
+      }
+    });
+  }
+
+  detail(res: SearchUser) {
+    if (res.type === 'CORPORATE_USER') {
+      this.router.navigate(['/general/corporate-user-detail', res.username]);
+    } else {
+      this.router.navigateByUrl('/general/profile');
+    }
+  }
 }

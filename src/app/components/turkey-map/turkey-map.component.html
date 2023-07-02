@@ -4,7 +4,8 @@
        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 80 1050 585" xml:space="preserve"
        style="width: 1300px; height: auto;">
     <g id="turkiye">
-      <g *ngFor="let city of cities" [id]="city.id" data-is-election-city="false">
+      <g (click)="openLgModal(lgModal,city);selectedCity=city" *ngFor="let city of cities" [id]="city.id"
+         data-is-election-city="false">
         <path
           [attr.fill]="getColor(city.plateNumber)"
           stroke="#ffffff"
@@ -24,14 +25,27 @@
   </svg>
 </div>
 
-<div id="popup" class="popup" [ngClass]="{ 'active': isPopupVisible }" [style.top.px]="popupPosition.top"
-     [style.left.px]="popupPosition.left">
-  <div class="popup-content">
-    <h3>{{ popupCity.name }}</h3>
-    <p>{{ popupCity.plateNumber }}</p>
-    <p>{{ popupCity.area }}</p>
-    <p>{{ popupCity.populationDensity }}</p>
-    <p>{{ popupCity.populationGrowth }}</p>
-    <!-- Diğer şehir bilgileri -->
+<!-- Button trigger lg modal -->
+<!-- Modal -->
+<ng-template #lgModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">{{selectedCity.name}}</h5>
+    <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>
   </div>
-</div>
+  <div class="modal-body" [ngClass]="[loading?'text-center':'']">
+    <div *ngIf="!loading" class="row">
+      <div (click)="detail(user)" *ngFor="let user of corporateUsers;index as i" style="cursor: pointer"
+           class="col-12 col-md-6 col-xl-4 text-white">
+        <div class="card text-white" [ngStyle]="{'background-color':hexToRgba(user.color,0.87)}">
+          <div class="card-body">
+            <h5 class="card-title">{{user.name}}</h5>
+            <label class="fw-bolder mb-0 text-uppercase">Şikayet Sayısı:  {{user.complaintCount}}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="loading" class="spinner-border text-primary text-center" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-template>

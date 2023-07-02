@@ -1,0 +1,92 @@
+<div class="row">
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="position-relative">
+        <figure class="overflow-hidden mb-0 d-flex justify-content-center">
+          <img src="https://picsum.photos/2296/544" class="rounded-top" alt="profile cover">
+        </figure>
+        <div
+          class="d-flex justify-content-between align-items-center position-absolute top-90 w-100 px-2 px-md-4 mt-n4">
+          <div>
+            <img class="wd-70 rounded-circle" [src]="corporateUser.logo" alt="profile">
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center p-3 rounded-bottom">
+        <ul class="d-flex align-items-center m-0 p-0">
+         <span
+           class="h4 ms-3 text-dark">{{corporateUser.name}}</span>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <div class="row">
+    <div class="col-md-12 col-xl-12 middle-wrapper">
+      <div class="card rounded">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h6 class="card-title mb-0">Hakkında</h6>
+              </div>
+              <p>{{corporateUser.about}}</p>
+              <div class="mt-3">
+                <label class="tx-11 fw-bolder mb-0 text-uppercase">Ad:</label>
+                <p class="text-muted">{{corporateUser.name}}</p>
+              </div>
+              <!--           id: number;
+                name: string;
+                website: string;
+                email: string;
+                phone: string;
+                address: string;
+                complaintCount: number;
+                color: string;
+                logo: string;
+                username: string;
+                about: string;
+                type: string;-->
+              <div class="mt-3">
+                <label class="tx-11 fw-bolder mb-0 text-uppercase">Website:</label>
+                <p class="text-muted">{{corporateUser.website}}</p>
+              </div>
+              <div class="mt-3">
+                <label class="tx-11 fw-bolder mb-0 text-uppercase">Email:</label>
+                <p class="text-muted">{{corporateUser.email}}</p>
+              </div>
+              <div class="mt-3">
+                <label class="tx-11 fw-bolder mb-0 text-uppercase">Telefon:</label>
+                <p class="text-muted">{{corporateUser.phone}}</p>
+              </div>
+              <div class="mt-3">
+                <label class="tx-11 fw-bolder mb-0 text-uppercase">Adres:</label>
+                <p class="text-muted">{{corporateUser.address}}</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 d-flex flex-row justify-content-center align-items-center">
+              <div class="stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="text-center mt-3 mb-4">Yapılan Şikayetler</h4>
+                    <i [ngClass]="[corporateUser.complaintCount===0||!corporateUser.complaintCount?
+                    'feather icon-check-circle text-primary icon-xxl d-block text-center my-3':
+                    'feather icon-alert-octagon text-warning icon-xxl d-block text-center my-3']"></i>
+                    <h3
+                      [ngClass]="[corporateUser.complaintCount === 0 || !corporateUser.complaintCount ? 'text-success' : 'text-danger']"
+                      class="text-center">{{corporateUser.complaintCount === 0 || !corporateUser.complaintCount ? 'Bu kurum herhangi bir şikayet almadı' : corporateUser.complaintCount}}</h3>
+                    <div class="d-grid">
+                      <button routerLink="/" class="btn btn-primary mt-4">Sorunlarını Dile Getir</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

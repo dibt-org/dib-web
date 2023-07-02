@@ -164,7 +164,7 @@
               <img class="wd-80 ht-80 rounded-circle" src="https://picsum.photos/80/80" alt="">
             </div>
             <div class="text-center">
-              <p class="tx-16 fw-bolder">{{user.firstName + " " + user.lastName}}</p>
+              <p class="tx-16 fw-bolder">{{user.firstName ? user.firstName + " " + user.lastName : user.username}}</p>
               <p class="tx-12 text-muted">{{user.email}}</p>
             </div>
           </div>

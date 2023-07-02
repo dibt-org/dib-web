@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 
 import {FeatherIconModule} from '../../../core/feather-icon/feather-icon.module';
 
@@ -30,6 +30,7 @@ import {SettingsComponent} from "../settings/settings.component";
 import {MentionModule} from "angular-mentions";
 import {SearchComponent} from './search/search.component';
 import {PerfectScrollbarModule} from "ngx-perfect-scrollbar";
+import {CorporateUserDetailComponent} from './corporate-user-detail/corporate-user-detail.component';
 
 
 const routes: Routes = [
@@ -87,13 +88,17 @@ const routes: Routes = [
       {
         path: 'search',
         component: SearchComponent
+      },
+      {
+        path: 'corporate-user-detail/:username',
+        component: CorporateUserDetailComponent
       }
     ]
   }
 ]
 
 @NgModule({
-  declarations: [GeneralComponent, BlankComponent, FaqComponent, InvoiceComponent, ProfileComponent, PricingComponent, TurkeyMapComponent, ComplaintCreateComponent, ProfileAboutComponent, MainComponent, ProfileTimelineComponent, SettingsComponent, SearchComponent],
+  declarations: [GeneralComponent, BlankComponent, FaqComponent, InvoiceComponent, ProfileComponent, PricingComponent, TurkeyMapComponent, ComplaintCreateComponent, ProfileAboutComponent, MainComponent, ProfileTimelineComponent, SettingsComponent, SearchComponent, CorporateUserDetailComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -107,7 +112,8 @@ const routes: Routes = [
     NgbDatepickerModule,
     MentionModule,
     NgbNavModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    NgOptimizedImage
   ]
 })
 export class GeneralModule {

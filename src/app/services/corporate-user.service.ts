@@ -9,6 +9,7 @@ import {UpdatedPersonalUserDto} from "../models/personal-user/updated-personal-u
 import {DataResult} from "../models/base-models/data-result";
 import {UserDetailDto} from "../models/personal-user/user-detail-dto";
 import {MapDto} from "../models/corporate/map-dto";
+import {CorporateUserDetail} from "../models/corporate/corporate-user-detail";
 
 
 @Injectable({
@@ -21,5 +22,13 @@ export class CorporateUserService {
 
   getMapData(): Observable<DataResult<MapDto[]>> {
     return this.http.get<DataResult<MapDto[]>>(environment.baseUrl + "corporate-user/map");
+  }
+
+  getDetail(username: string): Observable<DataResult<CorporateUserDetail>> {
+    return this.http.get<DataResult<CorporateUserDetail>>(environment.baseUrl + "corporate-user/username/" + username);
+  }
+
+  getDetailByCity(cityId: number): Observable<DataResult<CorporateUserDetail[]>> {
+    return this.http.get<DataResult<CorporateUserDetail[]>>(environment.baseUrl + "corporate-user/city/" + cityId);
   }
 }
