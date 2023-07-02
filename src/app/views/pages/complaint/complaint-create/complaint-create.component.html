@@ -3,23 +3,36 @@
     <div class="col-md-12 form-group">
       <div>
         <label for="title" class="form-label">Şikayet Başlığı</label>
-        <input required  ngModel #title="ngModel" name="title" id="title" type="text" class="form-control"
+        <input required minlength="2" maxlength="100" ngModel #title="ngModel" name="title" id="title" type="text"
+               class="form-control"
                placeholder="Şikayetinizin başlığını giriniz...">
+        <p class="text-danger mt-1" *ngIf="title.touched && title.errors?.required">Bu alan
+          zorunludur.</p>
+        <p class="text-danger mt-1" *ngIf="title.touched && (title.errors?.minlength||title.errors?.maxlength)">Şikayet
+          içeriği en az 2 en fazla 100 karakter olmalıdır.</p>
         <br>
       </div>
       <div>
         <label for="content" class="form-label">Şikayet İçeriği</label>
-        <textarea required [mention]="httpItems | async" (searchTerm)='search($event)' (itemSelected)="addMention($event)" ngModel #content="ngModel" name="content"
+        <textarea required [mention]="httpItems | async" (searchTerm)='search($event)'
+                  (itemSelected)="addMention($event)" ngModel #content="ngModel" name="content"
                   id="content"
-                  class="form-control" placeholder="Şikayetinizin detaylarını giriniz..."
+                  minlength="10" maxlength="1000"
+                  class="form-control"
+                  placeholder="Şikayetinizin detaylarını giriniz... ' @ ' ile Kurum etiketleyebilirsiniz. Örn: @kurum-kullanıcı-adı"
                   rows="3"></textarea>
+        <p class="text-danger mt-1" *ngIf="content.touched && content.errors?.required">Bu alan
+          zorunludur.</p>
+        <p class="text-danger mt-1" *ngIf="content.touched && (content.errors?.minlength||content.errors?.maxlength)">
+          Şikayet
+          içeriği en az 10 en fazla 1000 karakter olmalıdır.</p>
         <br>
       </div>
       <div>
         <label for="files" class="form-label">Şikayet Dosyası</label>
         <input ngModel #files="ngModel" name="files" id="files" type="file" accept="image/*, video/*"
                class="form-control"
-              (change)="onFileSelected($event)"
+               (change)="onFileSelected($event)"
                placeholder="Şikayet dosyanızı yükleyiniz..." multiple>
         <br>
       </div>

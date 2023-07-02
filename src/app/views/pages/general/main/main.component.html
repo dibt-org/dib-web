@@ -87,6 +87,7 @@
             </div>
           </div>
           <div class="card-body">
+            <h6 class="card-title mb-3">{{post.title}}</h6>
             <p class="mb-3 tx-14">{{post.content}}</p>
             <img *ngIf="post.mediaUrls&&post.mediaUrls.length===1" class="img-fluid" [src]="post.mediaUrls[0]" alt="">
             <ngb-carousel *ngIf="post.mediaUrls&&post.mediaUrls.length>1" class="carousel-fade"
