@@ -6,7 +6,7 @@ export const MENU: MenuItem[] = [
     isTitle: true
   },
   {
-    label: 'Anasayfa',
+    label: 'Anasayfa ',
     icon: 'home',
     link: '/dashboard'
   },

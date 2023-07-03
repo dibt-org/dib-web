@@ -7,6 +7,7 @@ import {DataResult} from '../../../../models/base-models/data-result';
 import {MentionConfig} from "angular-mentions";
 import {NgForm} from "@angular/forms";
 import Swal from "sweetalert2";
+import {PostService} from "../../../../services/post.service";
 
 interface PopupPosition {
   left: number;
@@ -23,8 +24,9 @@ export class ComplaintCreateComponent implements OnInit {
   mentions: { label: string }[] = [];
   httpItems: Observable<any>;
   private searchTermStream = new Subject<string>();
+  loading = false;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private postService: PostService) {
   }
 
   ngOnInit(): void {
@@ -72,18 +74,19 @@ export class ComplaintCreateComponent implements OnInit {
   }
 
   addComplaint(postForm: NgForm) {
+    this.loading = true;
     if (postForm.invalid) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Lütfen tüm alanları doldurunuz!',
+        text: 'Lütfen tüm alanları eksiksiz doldurunuz!',
       }).then((result) => {
         if (result.isConfirmed) {
+          this.loading = false;
           return;
         }
-
       });
-
+      this.loading = false;
       return;
     }
 
@@ -104,8 +107,31 @@ export class ComplaintCreateComponent implements OnInit {
       formData.append('images', this.files[i], this.files[i].name);
     }
 
-    this.http.post(environment.baseUrl + 'post', formData).subscribe((result) => {
-      console.log(result);
+    this.postService.post(formData).subscribe({
+      next: (result) => {
+        this.loading = false;
+        Swal.fire({
+          icon: 'success',
+          title: 'Başarılı!',
+          text: 'Şikayetiniz başarıyla oluşturuldu!',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload();
+          }
+        });
+      },
+      error: (err) => {
+        this.loading = false;
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Bir hata oluştu!',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload();
+          }
+        });
+      }
     });
   }
 

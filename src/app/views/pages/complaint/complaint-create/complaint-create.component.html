@@ -36,7 +36,11 @@
                placeholder="Şikayet dosyanızı yükleyiniz..." multiple>
         <br>
       </div>
-      <button (click)="addComplaint(postForm)" class="btn btn-primary">Şikayet Gönder</button>
+      <button *ngIf="!loading" (click)="addComplaint(postForm)" class="btn btn-primary">Şikayet Gönder</button>
+      <button *ngIf="loading" class="btn btn-primary" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Gönderiliyor...
+      </button>
     </div>
   </form>
 </div>
