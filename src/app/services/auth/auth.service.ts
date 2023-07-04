@@ -10,6 +10,7 @@ import {LoginModel} from "../../models/auth/login-model";
 import {TokenModel} from "../../models/auth/token-model";
 import {AuthModel} from "../../models/auth/auth-model";
 import {RegisterModel} from "../../models/auth/register-model";
+import {Result} from "../../models/base-models/result";
 
 @Injectable({
   providedIn: 'root'
@@ -117,5 +118,9 @@ export class AuthService {
 
   public register(registerModel: RegisterModel): Observable<DataResult<TokenModel>> {
     return this.http.post<DataResult<TokenModel>>(environment.baseUrl + "auth/register", registerModel);
+  }
+
+  public changePassword(oldPassword: string, newPassword: string): Observable<Result> {
+    return this.http.patch<Result>(environment.baseUrl + `auth/change-password?oldPassword=${oldPassword}&newPassword=${newPassword}`, {})
   }
 }

@@ -16,13 +16,16 @@
       </div>
       <div class="d-flex justify-content-center p-3 rounded-bottom">
         <ul class="d-flex align-items-center m-0 p-0">
-          <li class="d-flex align-items-center active">
-            <i class="feather icon-columns me-1 icon-md text-primary" routerLink="timeline"></i>
-            <a class="pt-1px d-none d-md-block text-primary" routerLink="timeline">Timeline</a>
+          <li class="d-flex align-items-center" (click)="timeline=true;about=false">
+            <i class="feather icon-columns me-1 icon-md" routerLink="timeline"
+               [ngClass]="[timeline?'text-primary':'text-body']"></i>
+            <a class="pt-1px d-none d-md-block" routerLink="timeline" [ngClass]="[timeline?'text-primary':'text-body']">Timeline</a>
           </li>
-          <li class="ms-3 ps-3 border-start d-flex align-items-center">
-            <i class="feather icon-user me-1 icon-md" routerLink="about"></i>
-            <a class="pt-1px d-none d-md-block text-body" routerLink="about">About</a>
+          <li class="ms-3 ps-3 border-start d-flex align-items-center" (click)="about=true;timeline=false">
+            <i class="feather icon-user me-1 icon-md text-primary" [ngClass]="[about?'text-primary':'text-body']"
+               routerLink="about"></i>
+            <a class="pt-1px d-none d-md-block" routerLink="about"
+               [ngClass]="[about?'text-primary':'text-body']">About</a>
           </li>
         </ul>
       </div>

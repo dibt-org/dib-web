@@ -1,9 +1,7 @@
 <div class="row d-none d-md-block">
   <app-turkey-map></app-turkey-map>
 </div>
-<div class="row profile-body">
-  <div class="d-none d-md-block col-md-4 col-xl-3 left-wrapper">
-  </div>
+<div class="row profile-body justify-content-center">
   <!-- left wrapper end -->
   <!-- middle wrapper start -->
   <div class="col-md-8 col-xl-6 middle-wrapper">
@@ -40,7 +38,7 @@
           <div class="card-body">
             <h6 class="card-title mb-3">{{post.title}}</h6>
             <p class="mb-3 tx-14">{{post.content}}</p>
-            <img *ngIf="post.mediaUrls&&post.mediaUrls.length===1" class="img-fluid" ngSrc="post.mediaUrls[0]" alt="">
+            <img *ngIf="post.mediaUrls&&post.mediaUrls.length===1" class="img-fluid" [src]="post.mediaUrls[0]" alt="">
             <ngb-carousel *ngIf="post.mediaUrls&&post.mediaUrls.length>1" class="carousel-fade"
                           [showNavigationArrows]="true" [showNavigationIndicators]="true">
               <ng-template ngbSlide *ngFor="let image of post.mediaUrls">

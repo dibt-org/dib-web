@@ -3,6 +3,8 @@ import {NgForm} from "@angular/forms";
 import {PersonalUserService} from "../../../services/personal-user.service";
 import Swal from "sweetalert2";
 import {UpdatePersonalUserDto} from "../../../models/personal-user/update-personal-user-dto";
+import {AuthService} from "../../../services/auth/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-settings',
@@ -14,8 +16,9 @@ export class SettingsComponent implements OnInit {
 
   isLoading: boolean = false
   isVerified: boolean = false;
+  isPasswordLoading: boolean = false;
 
-  constructor(private personalUserService: PersonalUserService) {
+  constructor(private personalUserService: PersonalUserService, private authService: AuthService,private router:Router) {
 
   }
 
@@ -94,5 +97,60 @@ export class SettingsComponent implements OnInit {
       default:
         return "Bilinmeyen bir hata oluştu.";
     }
+  }
+
+  changePassword(passwordForm: NgForm) {
+    this.isPasswordLoading = true;
+    if (passwordForm.invalid) {
+      Swal.fire({
+        title: 'Hata!',
+        text: "Lütfen tüm alanları doldurunuz.",
+        icon: 'error',
+        confirmButtonColor: '#3085d6',
+      }).then((result) => {
+        this.isPasswordLoading = false;
+        return;
+      });
+      return;
+    }
+    if (passwordForm.value.newPassword != passwordForm.value.newPasswordConfirm) {
+      Swal.fire({
+        title: 'Hata!',
+        text: "Girilen şifreler aynı değil.",
+        icon: 'error',
+        confirmButtonColor: '#3085d6',
+      }).then((result) => {
+        this.isPasswordLoading = false;
+        return;
+      });
+      return;
+    }
+
+    this.authService.changePassword(passwordForm.value.oldPassword, passwordForm.value.newPasswordConfirm).subscribe({
+      next: (response) => {
+        this.isPasswordLoading = false;
+        localStorage.removeItem("auth");
+        Swal.fire({
+          title: 'Başarılı!',
+          text: "Şifreniz başarıyla değiştirildi.",
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+        }).then((result) => {
+          this.router.navigate(["/auth/login"]);
+          return;
+        });
+      },
+      error: (error) => {
+        Swal.fire({
+          title: 'Hata!',
+          text: this.getErrorMessage(error.error.message),
+          icon: 'error',
+          confirmButtonColor: '#3085d6',
+        }).then((result) => {
+          this.isPasswordLoading = false;
+          return;
+        });
+      }
+    });
   }
 }

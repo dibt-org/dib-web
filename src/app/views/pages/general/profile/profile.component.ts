@@ -19,6 +19,8 @@ export class ProfileComponent implements OnInit {
     nationalityId: "",
     about: ""
   }
+  timeline = true;
+  about = false
 
   constructor(private modalService: NgbModal, private personalUserService: PersonalUserService) {
   }
