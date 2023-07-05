@@ -22,11 +22,13 @@ export class MainComponent implements OnInit {
   loading = false;
 
   makeCommentLoading = false;
+  username: string;
 
   constructor(private modalService: NgbModal, private postService: PostService, private userService: PersonalUserService, private router: Router) {
   }
 
   ngOnInit(): void {
+    this.username = JSON.parse(localStorage.getItem('user')!).username;
     this.userService.isVerified().subscribe(response => {
     });
     this.postService.getPosts().subscribe(response => {
@@ -118,6 +120,17 @@ export class MainComponent implements OnInit {
       },
       error: (error) => {
         this.makeCommentLoading = false;
+        console.log(error);
+      }
+    });
+  }
+
+  deletePost(post: GetAllPostDto) {
+    this.postService.deletePost(post.id).subscribe({
+      next: (response) => {
+        this.posts = this.posts.filter(p => p.id !== post.id);
+      },
+      error: (error) => {
         console.log(error);
       }
     });

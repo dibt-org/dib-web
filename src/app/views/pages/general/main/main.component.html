@@ -24,13 +24,11 @@
                 </button>
                 <div ngbDropdownMenu aria-labelledby="dropdownMenuButton2">
                   <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i
-                    class="feather icon-meh icon-sm me-2"></i> <span class="">Unfollow</span></a>
+                    class="feather icon-edit icon-sm me-2"></i> <span class="">düzenle</span></a>
                   <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i
-                    class="feather icon-corner-right-up icon-sm me-2"></i> <span class="">Go to post</span></a>
-                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i
-                    class="feather icon-share-2 icon-sm me-2"></i> <span class="">Share</span></a>
-                  <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i
-                    class="feather icon-copy icon-sm me-2"></i> <span class="">Copy link</span></a>
+                    class="feather icon-share-2 icon-sm me-2"></i> <span class="">paylaş</span></a>
+                  <a  *ngIf="post.username===username" ngbDropdownItem class="d-flex align-items-center"  (click)="deletePost(post)"><i
+                    class="feather icon-delete icon-sm me-2"></i> <span class="">sil</span></a>
                 </div>
               </div>
             </div>

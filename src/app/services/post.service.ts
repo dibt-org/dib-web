@@ -38,4 +38,9 @@ export class PostService {
     }
     return this.http.post(environment.baseUrl + 'comment', body);
   }
+
+  deletePost(id: number) {
+    return this.http.delete(environment.baseUrl + `post?id=${id}`,{});
+  }
+
 }
